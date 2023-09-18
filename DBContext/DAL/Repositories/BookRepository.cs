@@ -3,40 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DBContextApp.DAL.Repositories
 {
-    public class BookRepository
+    public class BookRepository : EFBaseRepository<Book>
     {
-        public User FindById(int userId)
-        {
-            using (var db = new DBContextApp.DAL.AppContext())
-            {
-                return db.Users.FirstOrDefault(u => u.Id == userId);
-            }
-        }
+        DbContext _context;
+        DbSet<Book> _dbSet;
 
-        public List<User> FindAll()
+        public BookRepository(DbContext context) : base(context)
         {
-            using (var db = new DBContextApp.DAL.AppContext())
-            {
-                return db.Users.ToList();
-            }
-        }
-
-        public void Add(User user)
-        {
-            using (var db = new DBContextApp.DAL.AppContext())
-            {
-                db.Users.Add(user);
-                db.SaveChanges();
-            }
-        }
-
-        public void Remove(User user)
-        {
-            using (var db = new DBContextApp.DAL.AppContext())
-            {
-                db.Users.Remove(user);
-                db.SaveChanges();
-            }
+            _context = context;
+            _dbSet = context.Set<Book>();
         }
     }
 }

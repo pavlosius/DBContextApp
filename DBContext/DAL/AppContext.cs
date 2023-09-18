@@ -11,7 +11,7 @@ namespace DBContextApp.DAL
         public DbSet<Book> Books { get; set; }
         public AppContext()
         {
-            //Database.EnsureDeleted();
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

@@ -11,13 +11,15 @@ namespace DBContextApp.DAL.Repositories
 
         public UserRepository(DbContext context) : base(context)
         {
-            //_context = context;
-            //_dbSet = context.Set<User>();
+            _context = context;
+            _dbSet = context.Set<User>();
         }
 
-        void Update(User userEntity)
+        public void Update(User userEntity)
         {
-
+            //base.FindById(userEntity.Id);
+            //userEntity.Name = newName;
+            _dbSet.Update(userEntity);
         }
 
 
@@ -67,9 +69,9 @@ namespace DBContextApp.DAL.Repositories
         //}
     }
 
-    public interface IUserRepository
-    {
-        int Update(User userEntity);
-        int DeleteById(int id);
-    }
+    //public interface IUserRepository
+    //{
+    //    int Update(User userEntity);
+    //    int DeleteById(int id);
+    //}
 }

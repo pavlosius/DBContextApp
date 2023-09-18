@@ -11,5 +11,10 @@ namespace DBContextApp.BLL.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime PublicationDate { get; set; }
+        public string? Author { get; set; }
+        public string? Genre { get; set; }
+
+        // Навигационное свойство
+        public List<User> Users { get; set; } = new List<User>();
     }
 }

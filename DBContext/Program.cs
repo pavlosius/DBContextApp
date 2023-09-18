@@ -1,5 +1,4 @@
 ﻿using DBContextApp.BLL.Models;
-using DBContextApp.BLL.Services;
 using DBContextApp.DAL.Repositories;
 using DBContextApp.PLL.Views;
 
@@ -14,25 +13,11 @@ class Program
     public static BooksView booksView;
     public static AddingUserView addingUserView;
     public static RemovingUserView removingUserView;
+    public static UpdateUserView updateUserView;
+    public static UpdateUserNameView updateUserNameView;
 
     static void Main(string[] args)
     {
-        using (var db = new DBContextApp.DAL.AppContext())
-        {
-            var user1 = new User { Name = "Arthur", Email = "Arthur@mail.com" };
-            var user2 = new User { Name = "klim", Email = "klim@mail.com" };
-
-            db.Users.Add(user1);
-            db.Users.Add(user2);
-
-            var book1 = new Book { Name = "Popular Mechanics", PublicationDate = new DateTime(2000, 12, 1) };
-            var book2 = new Book { Name = "LIFE", PublicationDate = new DateTime(1933, 8, 30) };
-
-            db.Books.AddRange(book1, book2);
-
-            db.SaveChanges();
-        }
-
         mainView = new MainView();
 
         //userService = new UserService(new DBContextApp.DAL.AppContext());
@@ -45,9 +30,30 @@ class Program
 
         usersView = new UsersView(userRepository);
         addingUserView = new AddingUserView(userRepository);
-        removingUserView= new RemovingUserView(userRepository);
+        removingUserView = new RemovingUserView(userRepository);
+        updateUserView = new UpdateUserView(userRepository);
+        updateUserNameView = new UpdateUserNameView(userRepository);
 
+        using (var db = new DBContextApp.DAL.AppContext())
+        {
+            var user1 = new User { Name = "Arthur", Email = "Arthur@mail.com" };
+            var user2 = new User { Name = "klim", Email = "klim@mail.com" };
 
+            var book1 = new Book { Name = "Popular Mechanics", PublicationDate = new DateTime(2000, 12, 1) };
+            var book2 = new Book { Name = "LIFE", PublicationDate = new DateTime(1933, 8, 30) };
+
+            user1.Books.Add(book1);
+            user2.Books.AddRange(new[] { book1, book2 });
+
+            //book1.Users.AddRange(new[] { user1, user2 });
+            //book2.Users.Add(user2);
+
+            db.Users.Add(user1);
+            db.Users.Add(user2);
+            db.Books.AddRange(book1, book2);
+
+            db.SaveChanges();
+        }
 
         while (true)
         {
