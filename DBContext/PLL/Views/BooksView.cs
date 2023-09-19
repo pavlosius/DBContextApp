@@ -14,15 +14,15 @@ namespace DBContextApp.PLL.Views
         }
         public void Show()
         {
-            var books = bookRepository.FindAll();
-
-            Program.showingBooksView.Show(books);
-
             while (true)
             {
+                var books = bookRepository.FindAll();
+
+                Program.showingBooksView.Show(books);
+
                 Console.WriteLine("Добавление книги (нажмите 1)");
                 Console.WriteLine("Удаление книги (нажмите 2)");
-                Console.WriteLine("Изменение жанра книги (нажмите 3)");
+                Console.WriteLine("Изменение данных книги (нажмите 3)");
                 Console.WriteLine("Поиск книг определенного жанра и вышедших между определенными годами (нажмите 4)");
                 Console.WriteLine("Количесвто книг определенного жанра (нажмите 5)");
                 Console.WriteLine("Количесвто книг определенного автора (нажмите 6)");

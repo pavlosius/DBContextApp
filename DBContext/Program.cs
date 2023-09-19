@@ -60,7 +60,7 @@ class Program
 
             db.Users.Add(user1);
             db.Users.Add(user2);
-            db.Books.AddRange(book1, book2);
+            db.Books.AddRange(book1, book2, book3);
 
             db.SaveChanges();
         }
