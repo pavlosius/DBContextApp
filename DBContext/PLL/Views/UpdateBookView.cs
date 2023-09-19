@@ -1,5 +1,4 @@
-﻿using DBContextApp.BLL.Services;
-using DBContextApp.BLL.Models;
+﻿using DBContextApp.BLL.Models;
 using DBContextApp.DAL.Repositories;
 using DBContextApp.BLL.Exceptions;
 
@@ -16,7 +15,7 @@ namespace DBContextApp.PLL.Views
         {
             try
             {
-                Console.WriteLine("Введите Id книги, данные которой хотите изменить: ");
+                Console.WriteLine("Введите Id книги, данные которой хотите изменить:");
 
                 int bookId = int.Parse(Console.ReadLine());
 
@@ -24,9 +23,7 @@ namespace DBContextApp.PLL.Views
 
                 while (true)
                 {
-                    Console.WriteLine("Изменение имени пользователя (нажмите 1)");
-                    Console.WriteLine("Получение книги пользователем (нажмите 2)");
-                    Console.WriteLine("Возврат книги пользователем (нажмите 3)");
+                    Console.WriteLine("Изменение жанра книги (нажмите 1)");
                     Console.WriteLine("Выйти (нажмите 0)");
 
                     string keyValue = Console.ReadLine();
@@ -37,17 +34,15 @@ namespace DBContextApp.PLL.Views
                     {
                         case "1":
                             {
-                                //Program.updateUserNameView.Show(user);
-                                break;
-                            }
-                        case "2":
-                            {
-                                //Program.addingBooksToUserView.Show(user);
-                                break;
-                            }
-                        case "3":
-                            {
-                                //Program.removingBooksFromUserView.Show(user);
+                                Console.WriteLine("Введите новое название жанра книги: ");
+
+                                string newBookGenre = Console.ReadLine();
+
+                                book.Genre = newBookGenre;
+
+                                bookRepository.Update(book);
+
+                                Console.WriteLine("Жанр книги успешно изменен.");
                                 break;
                             }
                     }
@@ -57,30 +52,6 @@ namespace DBContextApp.PLL.Views
             {
                 Console.WriteLine("Книга с таким Id не найдена!");
             }
-
-
-            //try
-            //{
-            //    Console.WriteLine("Введите Id пользователя, имя которого хотите изменить: ");
-
-            //    int userId = int.Parse(Console.ReadLine());
-
-            //    User user = userRepository.FindById(userId);
-
-            //    Console.WriteLine("Введите новое имя пользователя: ");
-
-            //    string newUserName = Console.ReadLine();
-
-            //    user.Name = newUserName;
-
-            //    userRepository.Update(user);
-
-            //    Console.WriteLine("Имя пользователя успешно изменено.");
-            //}
-            //catch (UserNotFoundException)
-            //{
-            //    Console.WriteLine("Пользователь с таким Id не найден!");
-            //}
         }
     }
 }

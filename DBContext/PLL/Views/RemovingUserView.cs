@@ -1,5 +1,4 @@
-﻿using DBContextApp.BLL.Services;
-using DBContextApp.BLL.Models;
+﻿using DBContextApp.BLL.Models;
 using DBContextApp.BLL.Exceptions;
 using DBContextApp.DAL.Repositories;
 
@@ -7,12 +6,6 @@ namespace DBContextApp.PLL.Views
 {
     public class RemovingUserView
     {
-        //UserService userService;
-        //public RemovingUserView(UserService userService)
-        //{
-        //    this.userService = userService;
-        //}
-
         UserRepository userRepository;
         public RemovingUserView(UserRepository userRepository)
         {
@@ -27,8 +20,8 @@ namespace DBContextApp.PLL.Views
                 int userId = int.Parse(Console.ReadLine());
 
                 User user = userRepository.FindById(userId);
+
                 userRepository.Remove(user);
-                //userRepository.RemoveById(userId);
 
                 Console.WriteLine("Пользователь успешно удален.");
             }
@@ -36,7 +29,6 @@ namespace DBContextApp.PLL.Views
             {
                 Console.WriteLine("Пользователь с таким Id не найден!");
             }
-
         }
     }
 }

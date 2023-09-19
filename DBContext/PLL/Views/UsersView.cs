@@ -1,17 +1,9 @@
-﻿using DBContextApp.BLL.Models;
-using DBContextApp.BLL.Services;
-using DBContextApp.DAL.Repositories;
+﻿using DBContextApp.DAL.Repositories;
 
 namespace DBContextApp.PLL.Views
 {
     public class UsersView
     {
-        //UserService userService;
-        //public UsersView(UserService userService)
-        //{
-        //    this.userService = userService;
-        //}
-
         UserRepository userRepository;
 
         public UsersView(UserRepository userRepository)

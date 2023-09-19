@@ -11,6 +11,7 @@ namespace DBContextApp.DAL.Repositories
         List<TEntity> FindAll();
         TEntity FindById(int id);
         void Add(TEntity item);
+        void Update(TEntity item);
         void Remove(TEntity item);
     }
 }

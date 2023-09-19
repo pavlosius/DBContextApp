@@ -27,6 +27,10 @@ namespace DBContextApp.DAL.Repositories
             _dbSet.Add(item);
             _context.SaveChanges();
         }
+        public void Update(TEntity item)
+        {
+            _dbSet.Update(item);
+        }
         public void Remove(TEntity item)
         {
             _dbSet.Remove(item);

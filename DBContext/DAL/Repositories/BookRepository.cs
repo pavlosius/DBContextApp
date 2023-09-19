@@ -6,17 +6,9 @@ namespace DBContextApp.DAL.Repositories
 {
     public class BookRepository : EFBaseRepository<Book>
     {
-        //DbContext _context;
-        //DbSet<Book> _dbSet;
-
-        public BookRepository(DbContext context) : base(context)
-        {
-            //_context = context;
-            //_dbSet = context.Set<Book>();
-        }
+        public BookRepository(DbContext context) : base(context) {}
         public override Book FindById(int bookId)
         {
-            //return _dbSet.Include(b => b.Users).Where(b => b.Id == bookId).First();
             return _dbSet.Include(b => b.Users).FirstOrDefault(b => b.Id == bookId);
         }
 

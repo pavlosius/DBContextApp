@@ -1,5 +1,4 @@
-﻿using DBContextApp.BLL.Services;
-using DBContextApp.BLL.Models;
+﻿using DBContextApp.BLL.Models;
 using DBContextApp.DAL.Repositories;
 using DBContextApp.BLL.Exceptions;
 
@@ -37,7 +36,15 @@ namespace DBContextApp.PLL.Views
                     {
                         case "1":
                             {
-                                Program.updateUserNameView.Show(user);
+                                Console.WriteLine("Введите новое имя пользователя: ");
+
+                                string newUserName = Console.ReadLine();
+
+                                user.Name = newUserName;
+
+                                userRepository.Update(user);
+
+                                Console.WriteLine("Имя пользователя успешно изменено.");
                                 break;
                             }
                         case "2":
@@ -57,30 +64,6 @@ namespace DBContextApp.PLL.Views
             {
                 Console.WriteLine("Пользователь с таким Id не найден!");
             }
-
-
-            //try
-            //{
-            //    Console.WriteLine("Введите Id пользователя, имя которого хотите изменить: ");
-
-            //    int userId = int.Parse(Console.ReadLine());
-
-            //    User user = userRepository.FindById(userId);
-
-            //    Console.WriteLine("Введите новое имя пользователя: ");
-
-            //    string newUserName = Console.ReadLine();
-
-            //    user.Name = newUserName;
-
-            //    userRepository.Update(user);
-
-            //    Console.WriteLine("Имя пользователя успешно изменено.");
-            //}
-            //catch (UserNotFoundException)
-            //{
-            //    Console.WriteLine("Пользователь с таким Id не найден!");
-            //}
         }
     }
 }
