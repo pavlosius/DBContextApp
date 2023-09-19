@@ -1,7 +1,4 @@
-﻿using DBContextApp.BLL.Services;
-using DBContextApp.BLL.Models;
-using DBContextApp.DAL.Repositories;
-using System;
+﻿using DBContextApp.DAL.Repositories;
 
 namespace DBContextApp.PLL.Views
 {

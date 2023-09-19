@@ -1,17 +1,9 @@
-﻿using DBContextApp.BLL.Models;
-using DBContextApp.BLL.Services;
-using DBContextApp.DAL.Repositories;
+﻿using DBContextApp.DAL.Repositories;
 
 namespace DBContextApp.PLL.Views
 {
     public class BooksView
     {
-        //UserService userService;
-        //public BooksView(UserService userService)
-        //{
-        //    this.userService = userService;
-        //}
-
         BookRepository bookRepository;
         UserRepository userRepository;
 
@@ -23,16 +15,8 @@ namespace DBContextApp.PLL.Views
         public void Show()
         {
             var books = bookRepository.FindAll();
+
             Program.showingBooksView.Show(books);
-
-            //Console.WriteLine("Список книг в библиотеке:");
-            //Console.WriteLine("Id Название Автор Дата_публикации Жанр");
-            //foreach (var book in books)
-            //{
-            //    Console.WriteLine($"{book.Id} {book.Name} {book.Author} {book.PublicationDate.ToString("dd/MM/yy")} {book.Genre}");
-            //}
-            //Console.WriteLine();
-
 
             while (true)
             {
@@ -67,7 +51,7 @@ namespace DBContextApp.PLL.Views
                         }
                     case "3":
                         {
-                            //Program.updateBookView.Show();
+                            Program.updateBookView.Show1();
                             break;
                         }
                     case "4":
