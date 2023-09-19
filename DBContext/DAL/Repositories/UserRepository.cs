@@ -5,26 +5,22 @@ namespace DBContextApp.DAL.Repositories
 {
     public class UserRepository : EFBaseRepository<User>
     {
+        public UserRepository(DbContext context) : base(context) {}
 
-        DbContext _context;
-        DbSet<User> _dbSet;
-
-        public UserRepository(DbContext context) : base(context)
+        public void Update(User user)
         {
-            _context = context;
-            _dbSet = context.Set<User>();
+            _dbSet.Update(user);
         }
 
-        public void Update(User userEntity)
+        public override User FindById(int userId)
         {
-            //base.FindById(userEntity.Id);
-            //userEntity.Name = newName;
-            _dbSet.Update(userEntity);
+            return _dbSet.Include(u => u.Books).FirstOrDefault(u => u.Id == userId);
         }
 
-
-
-
+        public int CountOfBooksRecievedByUser(User user)
+        {
+            return user.Books.Count();
+        }
 
 
         //    public UserRepository(DbContext context)
@@ -68,10 +64,4 @@ namespace DBContextApp.DAL.Repositories
         //    }
         //}
     }
-
-    //public interface IUserRepository
-    //{
-    //    int Update(User userEntity);
-    //    int DeleteById(int id);
-    //}
 }

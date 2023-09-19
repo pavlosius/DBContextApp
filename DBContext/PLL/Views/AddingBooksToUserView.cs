@@ -29,6 +29,8 @@ namespace DBContextApp.PLL.Views
             {
                 Console.WriteLine($"{book.Id} {book.Name} {book.Author} {book.PublicationDate} {book.Genre}");
             }
+            Console.WriteLine();
+
             Console.WriteLine("Ввдеите Id книги, которую хотите выдать пользователю:");
 
             int bookId = int.Parse(Console.ReadLine());
@@ -45,6 +47,7 @@ namespace DBContextApp.PLL.Views
             {
                 Console.WriteLine($"{book.Id} {book.Name} {book.Author} {book.PublicationDate} {book.Genre}");
             }
+            Console.WriteLine();
         }
     }
 }

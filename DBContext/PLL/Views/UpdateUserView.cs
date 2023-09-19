@@ -27,11 +27,11 @@ namespace DBContextApp.PLL.Views
                     Console.WriteLine("Изменение имени пользователя (нажмите 1)");
                     Console.WriteLine("Получение книги пользователем (нажмите 2)");
                     Console.WriteLine("Возврат книги пользователем (нажмите 3)");
-                    Console.WriteLine("Выйти (нажмите 4)");
+                    Console.WriteLine("Выйти (нажмите 0)");
 
                     string keyValue = Console.ReadLine();
 
-                    if (keyValue == "4") break;
+                    if (keyValue == "0") break;
 
                     switch (keyValue)
                     {
@@ -42,18 +42,18 @@ namespace DBContextApp.PLL.Views
                             }
                         case "2":
                             {
-                                Program.removingUserView.Show();
+                                Program.addingBooksToUserView.Show(user);
                                 break;
                             }
                         case "3":
                             {
-                                Program.updateUserView.Show();
+                                Program.removingBooksFromUserView.Show(user);
                                 break;
                             }
                     }
                 }
             }
-            catch (UserNotFoundException)
+            catch (ItemNotFoundException)
             {
                 Console.WriteLine("Пользователь с таким Id не найден!");
             }

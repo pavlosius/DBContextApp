@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBContextApp.BLL.Exceptions
 {
-    public class UserNotFoundException : Exception
+    public class ItemNotFoundException : Exception
     {
 
     }

@@ -6,8 +6,8 @@ namespace DBContextApp.DAL.Repositories
 {
     public class EFBaseRepository<TEntity> : IEFBaseRepository<TEntity> where TEntity : class
     {
-        DbContext _context;
-        DbSet<TEntity> _dbSet;
+        protected DbContext _context;
+        protected DbSet<TEntity> _dbSet;
 
         public EFBaseRepository(DbContext context)
         {
@@ -18,7 +18,7 @@ namespace DBContextApp.DAL.Repositories
         {
             return _dbSet.ToList();
         }
-        public TEntity FindById(int id)
+        public virtual TEntity FindById(int id)
         {
             return _dbSet.Find(id);
         }

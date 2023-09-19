@@ -19,9 +19,9 @@ namespace DBContextApp.PLL.Views
         }
         public void Show()
         {
-            Console.WriteLine("Введите имя пользователя которого хотите добавить: ");
+            Console.WriteLine("Введите имя пользователя, которого хотите добавить: ");
             string newUserName = Console.ReadLine();
-            Console.WriteLine("Введите почтовый адрес пользователя которого хотите добавить: ");
+            Console.WriteLine("Введите почтовый адрес пользователя, которого хотите добавить: ");
             string newUserEmail = Console.ReadLine();
             
             var newUser = new User()

@@ -32,7 +32,7 @@ namespace DBContextApp.PLL.Views
 
                 Console.WriteLine("Пользователь успешно удален.");
             }
-            catch (UserNotFoundException)
+            catch (ItemNotFoundException)
             {
                 Console.WriteLine("Пользователь с таким Id не найден!");
             }
