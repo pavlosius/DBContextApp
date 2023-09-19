@@ -51,7 +51,7 @@ namespace DBContextApp.PLL.Views
                         }
                     case "3":
                         {
-                            //Program.updateBookView.Show();
+                            Program.updateBookView.Show();
                             break;
                         }
                     case "4":
